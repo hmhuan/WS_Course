@@ -11,12 +11,12 @@ Hướng dẫn làm bài tập web science 01
 	ông tham khảo link này https://requests-html.kennethreitz.org/#pagination
 	với mỗi card nó sẽ có link vô detail -> lấy được info
 - Bài 4:
-	ông tham khảo link này https://requests-html.kennethreitz.org/#pagination
-	với mỗi card nó sẽ có link vô detail -> lấy được info
+	
 - Bài 5: 
 
 - Bài 6:
-
+	ông tham khảo link này https://requests-html.kennethreitz.org/#pagination
+	với mỗi card nó sẽ có link vô detail -> lấy được info
 - Bài 7: 
 
 - Bài 8:
