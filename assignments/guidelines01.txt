@@ -1,0 +1,26 @@
+Hướng dẫn làm bài tập web science 01
+
+- Bài 1: 
+	tui xài requests_html session để get url 
+	các tag như bình thường dễ lấy
+- Bài 2:
+	Xử dụng thư viện requests_html
+	+ C1: render như thầy Kiên chỉ(ko xài dc trên jupyter)
+	+ C2: tương tự ex01, lấy tag script sao đó regex/ xử lý chuỗi để lấy được object json đó.
+- Bài 3: 
+	ông tham khảo link này https://requests-html.kennethreitz.org/#pagination
+	với mỗi card nó sẽ có link vô detail -> lấy được info
+- Bài 4:
+	ông tham khảo link này https://requests-html.kennethreitz.org/#pagination
+	với mỗi card nó sẽ có link vô detail -> lấy được info
+- Bài 5: 
+
+- Bài 6:
+
+- Bài 7: 
+
+- Bài 8:
+
+- Bài 9: 
+
+- Bài 10:
