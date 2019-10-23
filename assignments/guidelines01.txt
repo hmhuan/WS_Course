@@ -20,7 +20,8 @@ Hướng dẫn làm bài tập web science 01
 - Bài 7: 
 
 - Bài 8:
-
+	Sử dụng thư viện requests để get link, get cái token
+	sử dụng thêm bs4 BeautifulSoup để convert content của 
 - Bài 9: 
 
 - Bài 10:
