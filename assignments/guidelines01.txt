@@ -11,14 +11,18 @@ Hướng dẫn làm bài tập web science 01
 	ông tham khảo link này https://requests-html.kennethreitz.org/#pagination
 	với mỗi card nó sẽ có link vô detail -> lấy được info
 - Bài 4:
-	
+	sử dụng thư viện requests-html để get 
+	filter theo script để lấy được nội dung ajaxdetail (thuộc url)
+	session.get() với domain + url vừa extract được -> trả về json()
 - Bài 5: 
-
+	tương tự như Bài 4
+	khi get lần 2 với link mới: domain + url extract được, nhớ bỏ thêm headers vào.
+	F12 để inspect site, chọn network xem các gói detail_header với ajaxdetail_header -> xem nó cần headers như thế nào.
 - Bài 6:
 	ông tham khảo link này https://requests-html.kennethreitz.org/#pagination
 	với mỗi card nó sẽ có link vô detail -> lấy được info
 - Bài 7: 
-
+	
 - Bài 8:
 	Sử dụng thư viện requests để get link, get cái token
 	sử dụng thêm bs4 BeautifulSoup để convert content của 
