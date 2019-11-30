@@ -1,0 +1,30 @@
+@prefix ex: <http://example.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+ex:PulpFiction 
+  ex:name "Pulp Fiction" ;
+  ex:director "Quentin Tarantino" ;
+  ex:actor "John Travolta" ;
+  ex:ReleaseDate 1994 .
+ex:TasteOfCherry 
+  ex:name "Taste of Cherry" ;
+  ex:director "Abbas Kiarostami" ;
+  ex:actor "Homayoun Ershadi" ;
+  ex:ReleaseDate 1997 .
+ex:SaturdayNightFever 
+  ex:name "Saturday Night Fever" ;
+  ex:director "John Badham" ;
+  ex:actor "John Travolta" ;
+  ex:ReleaseDate 1977 .
+
+ex:CannesFilmFestival
+  ex:name "Cannes Film Festival";
+  ex:1994 ex:FestivalFilm94 ;
+  ex:1997 ex:FestivalFilm97 .
+ex:FestivalFilm94 
+  ex:year 1994 ;
+  ex:film ex:PulpFiction ;
+  ex:country "USA" .
+ex:FestivalFilm97
+  ex:year "1997" ;
+  ex:film ex:TasteOfCherry ;
+  ex:country "Iran" .               

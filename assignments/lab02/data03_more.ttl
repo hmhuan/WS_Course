@@ -1,0 +1,40 @@
+@prefix ex: <http://example.org/movies/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:m3 rdf:type ex:Movie;
+	ex:genre ex:Drama, ex:Crime;
+	ex:year "1994"^^xsd:gYear;
+	rdfs:label "ZORRO";
+	ex:country ex:USA;
+	ex:director ex:p6;
+	ex:actor ex:p7 .
+ex:p10 rdf:type ex:Actor;
+	foaf:familyName "Hak";
+	foaf:givenName "Kah";
+	ex:birthYear "1974"^^xsd:gYear .
+ex:p6 rdf:type ex:Director;
+	foaf:familyName "Aladin";
+	foaf:givenName "Messi";
+	ex:birthYear "1966"^^xsd:gYear .
+ex:p7 rdf:type ex:Actor;
+	foaf:familyName "Cris";
+	foaf:givenName "Barh";
+	ex:birthYear "1976"^^xsd:gYear .
+ex:p8 rdf:type ex:Actor;
+	foaf:familyName "Lucas";
+	foaf:givenName "Jkovis";
+	ex:birthYear "1982"^^xsd:gYear .
+ex:m4 rdf:type ex:Movie;
+	ex:genre ex:Crime, ex:Romance;
+	ex:year "1995"^^xsd:gYear;
+	rdfs:label "Dead or Alive";
+	ex:country ex:China;
+	ex:director ex:p9;
+	ex:actor ex:p5.
+ex:p9 rdf:type ex:Director;
+	foaf:familyName "HuyMe";
+	foaf:givenName "Jorgua";
+	ex:birthYear "1953"^^xsd:gYear .

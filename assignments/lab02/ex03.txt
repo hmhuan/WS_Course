@@ -1,0 +1,88 @@
+# Q1
+PREFIX ex:<http://example.org/movies/>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+SELECT (?label as ?Movie)
+WHERE{
+  ?movie rdf:type ex:Movie .
+  ?movie rdfs:label ?label .
+}
+
+# Q2
+PREFIX ex:<http://example.org/movies/>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+SELECT (?label as ?Movie) (CONCAT(?familyName, " ", ?givenName) as ?Director) ?year
+WHERE{
+  ?movie rdf:type ex:Movie .
+  ?movie rdfs:label ?label .
+  ?movie ex:year ?year .
+  ?movie ex:director ?director .
+  ?director foaf:familyName ?familyName .
+  ?director foaf:givenName ?givenName .
+}ORDER BY DESC(?year)
+
+# Q3
+PREFIX ex:<http://example.org/movies/>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+SELECT (?label as ?Movie) (CONCAT(?giName, " ", ?faName) as ?Director) ?year
+WHERE{
+  ?movie rdf:type ex:Movie .
+  ?movie rdfs:label ?label .
+  ?movie ex:year ?releaseYear .
+  ?movie ex:director ?di .
+  ?di rdf:type ex:Director .
+  ?di foaf:familyName ?faName .
+  ?di foaf:givenName ?giName .
+  BIND(YEAR(?releaseYear) as ?year) .
+  filter (?year < 1996) .
+}
+
+# Q4
+PREFIX ex:<http://example.org/movies/>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+SELECT (?label as ?Movie) ?genre
+WHERE{
+  ?movie rdf:type ex:Movie .
+  ?movie rdfs:label ?label .
+  ?movie ex:genre ex:Crime .
+  ?movie ex:genre ?genre .
+}
+
+# Q5
+PREFIX ex:<http://example.org/movies/>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+SELECT (CONCAT(?giName, " ", ?faName) as ?Actor) ?age
+WHERE{
+  ?actor rdf:type ex:Actor .
+  ?actor foaf:familyName ?faName .
+  ?actor foaf:givenName ?giName .
+  ?actor ex:birthYear ?birthYear .
+  BIND(2016  - YEAR(?birthYear) as ?age) .
+  filter (?age > 50) .
+}
+
+
+# Q6
+PREFIX ex:<http://example.org/movies/>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+SELECT (?label as ?Movie) ?age
+WHERE{
+  ?movie rdf:type ex:Movie .
+  ?movie rdfs:label ?label .
+  ?movie ex:director ?di .
+  ?di rdf:type ex:Director .
+  ?di ex:birthYear ?birthYear .
+  BIND(2016  - YEAR(?birthYear) as ?age) .
+  filter (?age > 70) .
+}
+

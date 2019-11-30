@@ -1,0 +1,76 @@
+# prefix
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX res: <http://dbpedia.org/resource/>
+PREFIX dbp: <http://dbpedia.org/property/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX yago: <http://dbpedia.org/class/yago/>
+
+# Q1
+SELECT ?height
+WHERE {
+res:Claudia_Schiffer dbo:height ?height .
+}
+
+# Q2
+SELECT DISTINCT ?who WHERE { 
+   ?who rdf:type yago:RussianCosmonauts . 
+   ?who rdf:typ
+}
+
+# Q3
+SELECT count(DISTINCT ?country) WHERE {
+  ?country rdf:type dbo:Country . 
+  ?country dbo:governmentType ?govern .
+  ?country dbp:region ?region .
+  FILTER ( regex(?govern,'monarchy') && regex(?region, 'Europe')). 
+}
+
+# Q4
+SELECT DISTINCT ?states WHERE { 
+   ?states rdf:type yago:StatesOfGermany .
+   ?states dbp:rulingParty res:Social_Democratic_Party_of_Germany .
+}
+
+# Q5
+SELECT DISTINCT ?mornachs 
+WHERE{
+  ?mornachs rdf:type yago:MonarchsOfTheUnitedKingdom .
+  ?mornach dbo:spouse ?spouse .
+  ?spouse dbo:birthPlace res:Germany .
+}
+
+# Q6
+SELECT DISTINCT ?country WHERE { 
+  ?country rdf:type dbo:Country .
+  ?cave rdf:type dbo:Cave . 
+  ?cave dbo:location ?country . 
+} GROUP BY ?country HAVING (COUNT(?cave) > 2)
+
+# Q7
+SELECT DISTINCT ?city WHERE { 
+   ?city rdf:type dbo:City .
+   ?city dbo:isPartOf res:New_Jersey . 
+   ?city dbp:populationTotal ?inhabitants . 
+   FILTER (?inhabitants > 100000) . 
+}
+
+# Q8
+ASK WHERE { 
+  res:Proinsulin rdf:type dbo:Protein
+}
+
+# Q9
+ASK WHERE{
+OPTIONAL {res:Frank_Herbert dbo:deathDate ?date} .
+FILTER (!bound(?date)) 
+} 
+
+# Q10
+SELECT DISTINCT ?mountain ?height
+WHERE{
+   res:Annapurna_Massif dbo:elevation ?elevation . 
+   ?mountain rdf:type dbo:Mountain . 
+   ?mountain dbo:elevation ?height . 
+   FILTER (?height < ?elevation) .
+} ORDER BY DESC(?height) LIMIT(1)
